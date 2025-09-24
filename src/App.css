@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+/* App Styles */
+.app {
+  min-height: 100vh;
+  background: var(--gradient-bat);
+  color: var(--text-primary);
+}
