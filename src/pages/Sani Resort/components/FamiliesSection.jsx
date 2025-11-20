@@ -63,6 +63,7 @@ const FamiliesSection = () => {
               src={familyImage}
               alt="Family moment - child listening to seashell"
               className="w-full h-[70vh] object-cover object-center"
+              loading="lazy"
             />
           </div>
         </div>

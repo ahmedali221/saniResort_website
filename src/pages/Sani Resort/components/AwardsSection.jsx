@@ -14,6 +14,7 @@ const AwardsSection = () => {
                 src={awardBadge}
                 alt="World Travel Awards Winner 2024"
                 className="w-full h-full object-contain"
+                loading="lazy"
               />
             </div>
           </div>

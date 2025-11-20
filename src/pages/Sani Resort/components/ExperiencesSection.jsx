@@ -14,6 +14,7 @@ const ExperiencesSection = () => {
                 src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200"
                 alt="Sani wetlands aerial"
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
             {/* Top-right large image (child on treetop adventure) */}
@@ -22,6 +23,7 @@ const ExperiencesSection = () => {
                 src={webpImage}
                 alt="Treetop adventure"
                 className="w-full h-full object-cover object-top"
+                loading="lazy"
               />
             </div>
           </div>
