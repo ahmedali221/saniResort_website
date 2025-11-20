@@ -68,52 +68,40 @@ const Header = () => {
         {/* Navigation Menu */}
         <nav className="hidden md:flex items-center">
           <ul className="flex list-none m-0 p-0 gap-8">
-            {/*
             <li className="relative">
               <a href="#subjects" className="nav-link no-underline font-medium text-base py-2 transition-all duration-300 relative hover:-translate-y-1" style={{color: 'var(--text-primary)'}}>
                 Subjects
               </a>
             </li>
+                    <li className="relative">
+                      <Link to="/courses" className="nav-link no-underline font-medium text-base py-2 transition-all duration-300 relative hover:-translate-y-1" style={{color: 'var(--text-primary)'}}>
+                        Courses
+                      </Link>
+                    </li>
+                    <li className="relative">
+                      <Link to="/books" className="nav-link no-underline font-medium text-base py-2 transition-all duration-300 relative hover:-translate-y-1" style={{color: 'var(--text-primary)'}}>
+                        Books
+                      </Link>
+                    </li>
+                    <li className="relative">
+                      <Link to="/grades" className="nav-link no-underline font-medium text-base py-2 transition-all duration-300 relative hover:-translate-y-1" style={{color: 'var(--text-primary)'}}>
+                        Grades
+                      </Link>
+                    </li>
+                    <li className="relative">
+                      <Link to="/quizzes" className="nav-link no-underline font-medium text-base py-2 transition-all duration-300 relative hover:-translate-y-1" style={{color: 'var(--text-primary)'}}>
+                        Homework
+                      </Link>
+                    </li>
+                    <li className="relative">
+                      <Link to="/sessions" className="nav-link no-underline font-medium text-base py-2 transition-all duration-300 relative hover:-translate-y-1" style={{color: 'var(--text-primary)'}}>
+                        Sessions
+                      </Link>
+                    </li>
             <li className="relative">
-              <Link to="/courses" className="nav-link no-underline font-medium text-base py-2 transition-all duration-300 relative hover:-translate-y-1" style={{color: 'var(--text-primary)'}}>
-                Courses
-              </Link>
-            </li>
-            <li className="relative">
-              <Link to="/books" className="nav-link no-underline font-medium text-base py-2 transition-all duration-300 relative hover:-translate-y-1" style={{color: 'var(--text-primary)'}}>
-                Books
-              </Link>
-            </li>
-            <li className="relative">
-              <Link to="/grades" className="nav-link no-underline font-medium text-base py-2 transition-all duration-300 relative hover:-translate-y-1" style={{color: 'var(--text-primary)'}}>
-                Grades
-              </Link>
-            </li>
-            */}
-            <li className="relative">
-              <button type="button" className="nav-link no-underline font-medium text-base py-2 transition-all duration-300 relative hover:-translate-y-1 bg-transparent border-0 cursor-pointer" style={{color: 'var(--text-primary)'}}>
-                Homework
-              </button>
-            </li>
-            <li className="relative">
-              <button type="button" className="nav-link no-underline font-medium text-base py-2 transition-all duration-300 relative hover:-translate-y-1 bg-transparent border-0 cursor-pointer" style={{color: 'var(--text-primary)'}}>
-                Sessions
-              </button>
-            </li>
-            <li className="relative">
-              <Link to="/friends" className="nav-link no-underline font-medium text-base py-2 transition-all duration-300 relative hover:-translate-y-1" style={{color: 'var(--text-primary)'}}>
-                My Friends
-              </Link>
-            </li>
-            <li className="relative">
-              <Link to="/community" className="nav-link no-underline font-medium text-base py-2 transition-all duration-300 relative hover:-translate-y-1" style={{color: 'var(--text-primary)'}}>
-                Community
-              </Link>
-            </li>
-            <li className="relative">
-              <button type="button" className="nav-link no-underline font-medium text-base py-2 transition-all duration-300 relative hover:-translate-y-1 bg-transparent border-0 cursor-pointer" style={{color: 'var(--text-primary)'}}>
+              <Link to="/about" className="nav-link no-underline font-medium text-base py-2 transition-all duration-300 relative hover:-translate-y-1" style={{color: 'var(--text-primary)'}}>
                 Our Story
-              </button>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -263,52 +251,40 @@ const Header = () => {
           <div className="absolute top-0 right-0 w-80 h-screen p-8 flex flex-col justify-center items-center gap-8 animate-[slideIn_0.3s_ease-out]" style={{background: 'var(--gradient-bat)'}} onClick={(e) => e.stopPropagation()}>
             <nav className="flex flex-col">
               <ul className="flex flex-col list-none m-0 p-0 gap-8 text-center">
-                {/*
                 <li>
                   <a href="#subjects" className="no-underline text-xl font-medium p-4 block transition-all duration-300 rounded-lg" style={{color: 'var(--text-primary)'}} onMouseEnter={(e) => {e.target.style.backgroundColor = 'var(--bat-light-gray)'; e.target.style.color = 'var(--math-blue)';}} onMouseLeave={(e) => {e.target.style.backgroundColor = 'transparent'; e.target.style.color = 'var(--text-primary)';}} onClick={toggleMenu}>
                     Subjects
                   </a>
                 </li>
+                        {/* <li>
+                        <Link to="/courses" className="no-underline text-xl font-medium p-4 block transition-all duration-300 rounded-lg" style={{color: 'var(--text-primary)'}} onMouseEnter={(e) => {e.target.style.backgroundColor = 'var(--bat-light-gray)'; e.target.style.color = 'var(--math-blue)';}} onMouseLeave={(e) => {e.target.style.backgroundColor = 'transparent'; e.target.style.color = 'var(--text-primary)';}} onClick={toggleMenu}>
+                            Courses
+                        </Link>
+                        </li>
+                        <li>
+                        <Link to="/books" className="no-underline text-xl font-medium p-4 block transition-all duration-300 rounded-lg" style={{color: 'var(--text-primary)'}} onMouseEnter={(e) => {e.target.style.backgroundColor = 'var(--bat-light-gray)'; e.target.style.color = 'var(--math-blue)';}} onMouseLeave={(e) => {e.target.style.backgroundColor = 'transparent'; e.target.style.color = 'var(--text-primary)';}} onClick={toggleMenu}>
+                            Books
+                        </Link>
+                        </li> */}
+                        <li>
+                        <Link to="/grades" className="no-underline text-xl font-medium p-4 block transition-all duration-300 rounded-lg" style={{color: 'var(--text-primary)'}} onMouseEnter={(e) => {e.target.style.backgroundColor = 'var(--bat-light-gray)'; e.target.style.color = 'var(--math-blue)';}} onMouseLeave={(e) => {e.target.style.backgroundColor = 'transparent'; e.target.style.color = 'var(--text-primary)';}} onClick={toggleMenu}>
+                            Grades
+                        </Link>
+                        </li>
+                        <li>
+                        <Link to="/quizzes" className="no-underline text-xl font-medium p-4 block transition-all duration-300 rounded-lg" style={{color: 'var(--text-primary)'}} onMouseEnter={(e) => {e.target.style.backgroundColor = 'var(--bat-light-gray)'; e.target.style.color = 'var(--math-blue)';}} onMouseLeave={(e) => {e.target.style.backgroundColor = 'transparent'; e.target.style.color = 'var(--text-primary)';}} onClick={toggleMenu}>
+                            Homework
+                        </Link>
+                        </li>
+                        <li>
+                        <Link to="/sessions" className="no-underline text-xl font-medium p-4 block transition-all duration-300 rounded-lg" style={{color: 'var(--text-primary)'}} onMouseEnter={(e) => {e.target.style.backgroundColor = 'var(--bat-light-gray)'; e.target.style.color = 'var(--math-blue)';}} onMouseLeave={(e) => {e.target.style.backgroundColor = 'transparent'; e.target.style.color = 'var(--text-primary)';}} onClick={toggleMenu}>
+                            Sessions
+                        </Link>
+                        </li>
                 <li>
-                  <Link to="/courses" className="no-underline text-xl font-medium p-4 block transition-all duration-300 rounded-lg" style={{color: 'var(--text-primary)'}} onMouseEnter={(e) => {e.target.style.backgroundColor = 'var(--bat-light-gray)'; e.target.style.color = 'var(--math-blue)';}} onMouseLeave={(e) => {e.target.style.backgroundColor = 'transparent'; e.target.style.color = 'var(--text-primary)';}} onClick={toggleMenu}>
-                    Courses
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/books" className="no-underline text-xl font-medium p-4 block transition-all duration-300 rounded-lg" style={{color: 'var(--text-primary)'}} onMouseEnter={(e) => {e.target.style.backgroundColor = 'var(--bat-light-gray)'; e.target.style.color = 'var(--math-blue)';}} onMouseLeave={(e) => {e.target.style.backgroundColor = 'transparent'; e.target.style.color = 'var(--text-primary)';}} onClick={toggleMenu}>
-                    Books
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/grades" className="no-underline text-xl font-medium p-4 block transition-all duration-300 rounded-lg" style={{color: 'var(--text-primary)'}} onMouseEnter={(e) => {e.target.style.backgroundColor = 'var(--bat-light-gray)'; e.target.style.color = 'var(--math-blue)';}} onMouseLeave={(e) => {e.target.style.backgroundColor = 'transparent'; e.target.style.color = 'var(--text-primary)';}} onClick={toggleMenu}>
-                    Grades
-                  </Link>
-                </li>
-                */}
-                <li>
-                  <button type="button" className="no-underline text-xl font-medium p-4 block transition-all duration-300 rounded-lg bg-transparent border-0 cursor-pointer" style={{color: 'var(--text-primary)'}} onMouseEnter={(e) => {e.target.style.backgroundColor = 'var(--bat-light-gray)'; e.target.style.color = 'var(--math-blue)';}} onMouseLeave={(e) => {e.target.style.backgroundColor = 'transparent'; e.target.style.color = 'var(--text-primary)';}}>
-                    Homework
-                  </button>
-                </li>
-                <li>
-                  <button type="button" className="no-underline text-xl font-medium p-4 block transition-all duration-300 rounded-lg bg-transparent border-0 cursor-pointer" style={{color: 'var(--text-primary)'}} onMouseEnter={(e) => {e.target.style.backgroundColor = 'var(--bat-light-gray)'; e.target.style.color = 'var(--math-blue)';}} onMouseLeave={(e) => {e.target.style.backgroundColor = 'transparent'; e.target.style.color = 'var(--text-primary)';}}>
-                    Sessions
-                  </button>
-                </li>
-                <li>
-                  <Link to="/friends" className="no-underline text-xl font-medium p-4 block transition-all duration-300 rounded-lg" style={{color: 'var(--text-primary)'}} onMouseEnter={(e) => {e.target.style.backgroundColor = 'var(--bat-light-gray)'; e.target.style.color = 'var(--math-blue)';}} onMouseLeave={(e) => {e.target.style.backgroundColor = 'transparent'; e.target.style.color = 'var(--text-primary)';}} onClick={toggleMenu}>
-                    My Friends
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/community" className="no-underline text-xl font-medium p-4 block transition-all duration-300 rounded-lg" style={{color: 'var(--text-primary)'}} onMouseEnter={(e) => {e.target.style.backgroundColor = 'var(--bat-light-gray)'; e.target.style.color = 'var(--math-blue)';}} onMouseLeave={(e) => {e.target.style.backgroundColor = 'transparent'; e.target.style.color = 'var(--text-primary)';}} onClick={toggleMenu}>
-                    Community
-                  </Link>
-                </li>
-                <li>
-                  <button type="button" className="no-underline text-xl font-medium p-4 block transition-all duration-300 rounded-lg bg-transparent border-0 cursor-pointer" style={{color: 'var(--text-primary)'}} onMouseEnter={(e) => {e.target.style.backgroundColor = 'var(--bat-light-gray)'; e.target.style.color = 'var(--math-blue)';}} onMouseLeave={(e) => {e.target.style.backgroundColor = 'transparent'; e.target.style.color = 'var(--text-primary)';}}>
+                  <Link to="/about" className="no-underline text-xl font-medium p-4 block transition-all duration-300 rounded-lg" style={{color: 'var(--text-primary)'}} onMouseEnter={(e) => {e.target.style.backgroundColor = 'var(--bat-light-gray)'; e.target.style.color = 'var(--math-blue)';}} onMouseLeave={(e) => {e.target.style.backgroundColor = 'transparent'; e.target.style.color = 'var(--text-primary)';}} onClick={toggleMenu}>
                     Our Story
-                  </button>
+                  </Link>
                 </li>
               </ul>
               

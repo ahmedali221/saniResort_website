@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="#1a5f3f" stroke="#2d8f5f" stroke-width="2"/>
+  
+  <!-- Stylized "S" for Sani -->
+  <path d="M 60 50 Q 50 50 50 60 L 50 80 Q 50 90 60 90 L 80 90 Q 90 90 90 100 Q 90 110 80 110 L 60 110 Q 50 110 50 120 L 50 140 Q 50 150 60 150 L 140 150 Q 150 150 150 140 L 150 120 Q 150 110 140 110 L 120 110 Q 110 110 110 100 Q 110 90 120 90 L 140 90 Q 150 90 150 80 L 150 60 Q 150 50 140 50 Z" 
+        fill="#f4e4c1" 
+        stroke="#d4b896" 
+        stroke-width="2"/>
+  
+  <!-- Decorative elements - palm leaves -->
+  <path d="M 100 30 L 95 50 L 100 45 L 105 50 Z" fill="#2d8f5f"/>
+  <path d="M 100 30 L 90 48 L 100 43 L 110 48 Z" fill="#2d8f5f"/>
+  <path d="M 100 30 L 85 46 L 100 41 L 115 46 Z" fill="#2d8f5f"/>
+  
+  <!-- Small decorative dots -->
+  <circle cx="100" cy="70" r="3" fill="#f4e4c1"/>
+  <circle cx="100" cy="130" r="3" fill="#f4e4c1"/>
+</svg>
+
