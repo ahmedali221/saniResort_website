@@ -11,7 +11,7 @@ const AdventuresSection = () => {
             <Quote size={42} strokeWidth={1.4} className="md:w-[48px] md:h-[60px]" />
           </div>
 
-          <div className="max-w-xl w-full  relative z-10 flex flex-col items-center justify-center">
+          <div className="max-w-xl w-full relative z-10 flex flex-col items-center justify-center">
             <p 
               className="text-gray-700 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed"
               style={{ fontFamily: 'cosma-font-wiescher-design', lineHeight: '2' }}
@@ -25,7 +25,6 @@ const AdventuresSection = () => {
           </div>
         </div>
 
-        {/* Right Side - Aerial Image */}
         <div className="flex-1 flex items-center justify-center bg-[#E8E4DD]">
           <div 
             className="w-full  max-h-[50vh] md:h-[50vw] bg-cover bg-center "

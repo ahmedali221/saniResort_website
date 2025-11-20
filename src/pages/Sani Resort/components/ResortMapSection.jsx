@@ -14,7 +14,6 @@ const ResortMapSection = () => {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          {/* Left Map Icon - moves left and bounces back */}
           <motion.div
             animate={{
               x: isHovered ? [-40, 0] : 0,
@@ -31,7 +30,6 @@ const ResortMapSection = () => {
             />
           </motion.div>
 
-          {/* Resort Map Text - disappears on hover */}
           <AnimatePresence>
             {!isHovered && (
               <motion.span
@@ -51,7 +49,6 @@ const ResortMapSection = () => {
             )}
           </AnimatePresence>
 
-          {/* Right Arrow Icon - moves right and bounces back */}
           <motion.div
             animate={{
               x: isHovered ? [40, 0] : 0,

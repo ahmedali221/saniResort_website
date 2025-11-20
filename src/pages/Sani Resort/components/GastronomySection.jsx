@@ -4,14 +4,12 @@ const GastronomySection = () => {
   return (
     <section className="py-24 px-4 md:px-8 ">
       <div className="max-w-5xl mx-auto text-center">
-        {/* Small Label */}
         <div className="mb-6">
           <p className="text-sm tracking-[0.3em] text-gray-500 uppercase ">
             GASTRONOMY
           </p>
         </div>
 
-        {/* Main Heading */}
         <div className="mb-8">
           <h2 className="text-5xl md:text-7xl lg:text-8xl font-serif text-[#b89968] leading-tight" style={{ fontFamily: 'cosma-font-wiescher-design' }}>
             FOR EVERY<br />
@@ -19,7 +17,6 @@ const GastronomySection = () => {
           </h2>
         </div>
 
-        {/* Description */}
         <div className="max-w-3xl mx-auto mb-12">
           <p className="text-base md:text-lg text-gray-600 leading-relaxed font-light">
             Home to 26 restaurants, we pride ourselves on world-class cuisines to suit every palate. From 
@@ -28,7 +25,6 @@ const GastronomySection = () => {
           </p>
         </div>
 
-        {/* CTA Link */}
         <div className="text-center">
           <a 
             href="#" 

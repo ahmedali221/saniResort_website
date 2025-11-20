@@ -6,9 +6,7 @@ const WellnessSection = () => {
   return (
     <section className="bg-[#F4F4F4] h-[100vh] flex items-center px-8 md:px-16 lg:px-12">
       <div className="w-full h-full flex flex-col lg:flex-row">
-        {/* LEFT: Image with Overlaid Video */}
         <div className="relative flex-[5] h-full">
-          {/* Background Forest Image */}
           <div className="absolute inset-0 w-full h-full">
             <img
               src={treesImage}
@@ -18,7 +16,6 @@ const WellnessSection = () => {
             />
           </div>
           
-          {/* Centered Video Overlay */}
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="w-[55%] h-[65%] overflow-hidden">
               <video
@@ -35,25 +32,20 @@ const WellnessSection = () => {
           </div>
         </div>
 
-        {/* RIGHT: Text Content */}
         <div className="flex-[4] flex flex-col justify-center px-8 md:px-12 lg:px-16 xl:px-20 py-16 lg:py-0 bg-[#F5F3F0]">
-          {/* Section Label */}
           <p className="text-xs md:text-sm tracking-[0.4em] text-gray-400 uppercase font-light mb-8" style={{ fontFamily: 'sans-serif' }}>
             WELLNESS
           </p>
 
-          {/* Main Heading */}
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.15] mb-8" style={{ fontFamily: 'cosma-font-wiescher-design' }}>
             A SANCTUARY<br />
             FOR THE <span className="italic font-light">SOUL</span>
           </h2>
 
-          {/* Description Paragraph */}
           <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-10" style={{ fontFamily: 'sans-serif', lineHeight: '1.7' }}>
             Sani Resort is a place offering countless nature-based experiences. Explore a variety of options, including fitness, sports, and outdoor adventures. Choose from yoga, Pilates, spa treatments, meditation, forest walks, and a host of other activities. It's the perfect way to nurture both body and mind.
           </p>
 
-          {/* CTA Link */}
           <div>
             <a
               href="#"

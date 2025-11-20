@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
 
 const NewsSection = () => {
   const containerRef = useRef(null)
@@ -50,14 +51,11 @@ const NewsSection = () => {
     }
   ]
 
-  // Smooth trailing animation for the circle
   useEffect(() => {
     const animateCircle = () => {
       setCirclePosition(prev => {
         const dx = mousePosition.x - prev.x
         const dy = mousePosition.y - prev.y
-        
-        // Easing factor - higher = slower follow (0.1 = smooth trailing effect)
         const ease = 0.15
         
         return {
@@ -89,10 +87,9 @@ const NewsSection = () => {
       })
     }
 
-    // Handle dragging
     if (isDragging && scrollContainerRef.current) {
       const x = e.pageX - scrollContainerRef.current.offsetLeft
-      const walk = (x - startX) * 2 // Multiply for faster scroll
+      const walk = (x - startX) * 2
       scrollContainerRef.current.scrollLeft = scrollLeft - walk
     }
   }
@@ -121,9 +118,7 @@ const NewsSection = () => {
   return (
     <section className="py-20 bg-[#f8f8f8]">
       <div className="max-w-[1600px] mx-auto px-16 md:px-20 lg:px-32">
-        {/* Header - Two Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-          {/* Left Side - Heading */}
           <div>
             <h2 
               className="text-6xl md:text-7xl lg:text-8xl font-light tracking-tight mb-6"
@@ -133,7 +128,6 @@ const NewsSection = () => {
             </h2>
           </div>
           
-          {/* Right Side - Description and Link */}
           <div className="flex flex-col justify-end">
             <p className="text-base md:text-lg text-gray-700 mb-6 leading-relaxed">
               Stay informed of Sani Resort's latest initiatives and accomplishments.
@@ -161,7 +155,6 @@ const NewsSection = () => {
           </div>
         </div>
 
-        {/* Draggable News Carousel */}
         <div 
           ref={containerRef}
           className="relative -mx-16 md:-mx-20 lg:-mx-32 px-16 md:px-20 lg:px-32"
@@ -172,25 +165,32 @@ const NewsSection = () => {
           onMouseUp={handleMouseUp}
           style={{ cursor: isDragging ? 'grabbing' : 'default' }}
         >
-          <div 
+          <motion.div 
             ref={scrollContainerRef}
-            className="flex overflow-x-auto scrollbar-hide pb-8 transition-all duration-300"
+            className="flex overflow-x-auto scrollbar-hide pb-8"
+            animate={{
+              gap: isDragging ? '48px' : '32px'
+            }}
+            transition={{ duration: 0.3 }}
             style={{ 
               scrollBehavior: isDragging ? 'auto' : 'smooth',
-              userSelect: 'none',
-              gap: isDragging ? '48px' : '32px'
+              userSelect: 'none'
             }}
           >
             {newsItems.map((item, index) => (
-              <div 
+              <motion.div 
                 key={index}
-                className="flex-shrink-0 w-[380px] bg-white transition-all duration-300"
+                className="flex-shrink-0 w-[380px] bg-white"
                 style={{ pointerEvents: isDragging ? 'none' : 'auto' }}
+                animate={{
+                  scale: isDragging ? 0.98 : 1
+                }}
+                transition={{ duration: 0.3 }}
               >
-                {/* Image */}
-                <div 
-                  className="relative overflow-hidden mb-6 transition-all duration-300"
-                  style={{ height: isDragging ? '430px' : '480px' }}
+                <motion.div 
+                  className="relative overflow-hidden mb-6"
+                  animate={{ height: isDragging ? '430px' : '480px' }}
+                  transition={{ duration: 0.3 }}
                 >
                   <img 
                     src={item.image} 
@@ -199,9 +199,8 @@ const NewsSection = () => {
                     draggable="false"
                     loading="lazy"
                   />
-                </div>
+                </motion.div>
 
-                {/* Content */}
                 <div className="px-6">
                   <p className="text-[9px] font-normal tracking-[0.25em] uppercase text-gray-500 mb-5">
                     {item.category}
@@ -239,11 +238,10 @@ const NewsSection = () => {
                     }} className="underline-animation"></span>
                   </a>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
-          {/* Trailing Circle - Drag Indicator */}
           {isHovering && (
             <div 
               className="absolute pointer-events-none z-10"
@@ -255,7 +253,6 @@ const NewsSection = () => {
               }}
             >
               <div className="w-28 h-28 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-full border-2 border-white flex items-center justify-center bg-black">
-                {/* Drag Text */}
                 <p className="text-white text-[10px] md:text-xs font-light tracking-[0.15em] uppercase">
                   {isDragging ? 'DRAGGING' : 'DRAG'}
                 </p>
@@ -265,7 +262,6 @@ const NewsSection = () => {
         </div>
       </div>
 
-      {/* Custom CSS to hide scrollbar */}
       <style jsx>{`
         .scrollbar-hide::-webkit-scrollbar {
           display: none;

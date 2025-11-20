@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { motion } from 'framer-motion'
 import leftImage1 from '../../../assets/sanirose/sani-bousoulas-2-copy.webp'
 import leftImage2 from '../../../assets/sanirose/sani-resort-_-aerial-1-copy.webp'
 import rightImage1 from '../../../assets/sanirose/trees.webp'
@@ -8,11 +9,17 @@ const ImageCarousel = ({ images, currentIndex, className = '' }) => {
   return (
     <div className={`relative w-full h-full overflow-hidden ${className}`}>
       {images.map((image, index) => (
-        <div
+        <motion.div
           key={index}
-          className={`absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-[2000ms] ease-in-out ${
-            index === currentIndex ? 'opacity-100' : 'opacity-0'
-          }`}
+          className="absolute inset-0 w-full h-full bg-cover bg-center"
+          initial={false}
+          animate={{
+            opacity: index === currentIndex ? 1 : 0
+          }}
+          transition={{
+            duration: 2,
+            ease: [0.4, 0, 0.2, 1]
+          }}
           style={{
             backgroundImage: `url(${image})`,
             backgroundPosition: 'center',
@@ -35,15 +42,13 @@ const FiveHotelsSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       if (isLeftTurnRef.current) {
-        // Left image changes first
         setLeftIndex((prevIndex) => (prevIndex + 1) % leftImages.length)
         isLeftTurnRef.current = false
       } else {
-        // Right image changes after delay
         setRightIndex((prevIndex) => (prevIndex + 1) % rightImages.length)
         isLeftTurnRef.current = true
       }
-    }, 5000) // Change every 5 seconds
+    }, 5000)
 
     return () => clearInterval(interval)
   }, [leftImages.length, rightImages.length])
@@ -51,34 +56,26 @@ const FiveHotelsSection = () => {
   return (
     <section className="w-full bg-white h-screen mt-12 overflow-hidden">
       <div className="h-full flex flex-col">
-        {/* "THE RESORT" label - positioned above flex section, aligned with center content */}
         <div className="px-12 pt-8 pb-4 flex-shrink-0">
           <div className="flex flex-col md:flex-row">
-            {/* Left spacer - flex-1 to match left image section */}
             <div className="flex-1"></div>
             
-            {/* Center section - flex-1 to match center text section */}
             <div className="flex-1 flex justify-center">
               <p className="text-gray-400 uppercase text-center" style={{ fontFamily: 'sans-serif' }}>
                 THE RESORT
               </p>
             </div>
             
-            {/* Right spacer - flex-1 to match right image section */}
             <div className="flex-1"></div>
           </div>
         </div>
 
-        {/* Flex container with equal sections - fills remaining space */}
         <div className="flex flex-col md:flex-row flex-1 px-12 pb-4 min-h-0">
-          {/* Left Image Section - flex-1, reduced height */}
           <div className="flex-1 h-[85%]  w-[90%] overflow-hidden">
             <ImageCarousel images={leftImages} currentIndex={leftIndex} />
           </div>
 
-          {/* Center Text Section - flex-1 */}
           <div className="flex-1 bg-white flex flex-col justify-center lg:px-16 pb-20">
-            {/* Main Headline */}
             <h2 className="text-7xl text-center mb-6 md:mb-8" style={{ fontFamily: 'cosma-font-wiescher-design' }}>
               <span className="text-black">FIVE</span>
               <br />
@@ -89,7 +86,6 @@ const FiveHotelsSection = () => {
               <span className="text-[#D4A574]">RESORT</span>
             </h2>
 
-            {/* Description Text - More compact */}
             <div className="space-y-4 mt-8 max-w-3xl mx-auto w-full leading-relaxed">
               <p
                 className="text-gray-700 text-md font-light text-center leading-relaxed"
@@ -135,14 +131,10 @@ const FiveHotelsSection = () => {
         `}</style>
           </div>
 
-          {/* Right Image Section - flex-1, reduced height */}
           <div className="flex-1 h-[85%] w-[90%] overflow-hidden">
             <ImageCarousel images={rightImages} currentIndex={rightIndex} />
           </div>
         </div>
-
-    
-        
       </div>
     </section>
   )

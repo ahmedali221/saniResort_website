@@ -6,25 +6,20 @@ const SustainabilitySection = () => {
   return (
     <section className="bg-[#F4F4F4] h-[100vh] flex items-center px-8 md:px-16 lg:px-12">
       <div className="w-full h-full flex flex-col lg:flex-row">
-        {/* LEFT: Text Content */}
         <div className="flex-[4] flex flex-col justify-center px-8 md:px-12 lg:px-16 xl:px-20 py-16 lg:py-0 bg-[#F5F3F0]">
-          {/* Section Label */}
           <p className="text-xs md:text-sm tracking-[0.4em] text-gray-400 uppercase font-light mb-8" style={{ fontFamily: 'sans-serif' }}>
             SUSTAINABILITY
           </p>
 
-          {/* Main Heading */}
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-[1.15] mb-8" style={{ fontFamily: 'cosma-font-wiescher-design' }}>
             LEAVE NOTHING<br />
             BUT <span className="italic font-light">FOOTPRINTS</span>
           </h2>
 
-          {/* Description Paragraph */}
           <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-10" style={{ fontFamily: 'sans-serif', lineHeight: '1.7' }}>
             Home to untamed wildlife and sprawling wilderness, Sani is a resort that's committed to sustainability. Already the recipient of 10 Blue Flags, since 2020 - when Sani Resort became the first carbon neutral resort in Greece - Sani has continually won the World's Leading Luxury Green Resort at the World's Travel Awards, giving the resort five consecutive wins in 2024.
           </p>
 
-          {/* CTA Link */}
           <div>
             <a
               href="#"
@@ -55,9 +50,7 @@ const SustainabilitySection = () => {
           `}</style>
         </div>
 
-        {/* RIGHT: Image with Overlaid Video */}
         <div className="relative flex-[5] h-full">
-          {/* Background Landscape Image */}
           <div className="absolute inset-0 w-full h-full">
             <img
               src={"https://res.cloudinary.com/deilfrlsh/image/upload/v1763641938/ducks_abifhy.webp"}
@@ -67,7 +60,6 @@ const SustainabilitySection = () => {
             />
           </div>
           
-          {/* Centered Video Overlay */}
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="w-[55%] h-[65%] overflow-hidden">
               <video

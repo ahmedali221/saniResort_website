@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import beach1 from '../../../assets/sanirose/beach1.jpg';
 import sunUmbrellas from '../../../assets/sanirose/sund_umbrellas.jpg';
 import beach from '../../../assets/sanirose/beach.jpg';
@@ -68,158 +69,152 @@ const OffersSliderSection = () => {
   const nextSlide = currentSlide < slides.length - 1 ? slides[currentSlide + 1] : null;
 
   return (
-    <>
-      <style>{`
-        @keyframes fadeInScale {
-          0% {
-            opacity: 0;
-            transform: scale(0.95) translateY(10px);
-          }
-          100% {
-            opacity: 1;
-            transform: scale(1) translateY(0);
-          }
-        }
-        .animate-fadeInScale {
-          animation: fadeInScale 1500ms ease-out forwards;
-        }
-        .animated-underline-white {
-          position: relative;
-          display: inline-block;
-          border-bottom: 2px solid white;
-          padding-bottom: 4px;
-        }
-        .animated-underline-white::after {
-          content: '';
-          position: absolute;
-          left: 0;
-          bottom: 0;
-          width: 0;
-          height: 2px;
-          background-color: white;
-          transition: width 0.4s ease-in-out;
-        }
-        .animated-underline-white:hover::after {
-          width: 100%;
-        }
-      `}</style>
-      <section className="w-full h-screen relative overflow-hidden">
-        {/* Image Slider */}
+    <section className="w-full h-screen relative overflow-hidden">
         <div
           ref={containerRef}
           className="relative w-full h-full cursor-pointer"
           onClick={handleSliderClick}
           onMouseMove={handleMouseMove}
         >
-          {/* Background Images with Sliding Transition */}
           <div className="absolute inset-0 overflow-hidden">
             {slides.map((slide, index) => (
-              <div
+              <motion.div
                 key={index}
-                className={`absolute inset-0 transition-all duration-[1800ms] ease-in-out ${
-                  index === currentSlide
-                    ? 'translate-x-0 opacity-100 scale-100'
-                    : index < currentSlide
-                    ? '-translate-x-full opacity-0 scale-95'
-                    : 'translate-x-full opacity-0 scale-95'
-                }`}
+                className="absolute inset-0"
+                initial={false}
+                animate={{
+                  x: index === currentSlide ? '0%' : index < currentSlide ? '-100%' : '100%',
+                  opacity: index === currentSlide ? 1 : 0,
+                  scale: index === currentSlide ? 1 : 0.95
+                }}
+                transition={{
+                  duration: 1.8,
+                  ease: [0.4, 0, 0.2, 1]
+                }}
               >
                 <img
                   src={slide.image}
                   alt={slide.title}
-                  className="w-full h-full object-cover transition-transform duration-[1800ms] ease-in-out"
+                  className="w-full h-full object-cover"
                   loading="lazy"
                 />
-                {/* Dark Overlay */}
                 <div className="absolute inset-0 bg-black/20"></div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
-          {/* Slide Indicators - Bottom Center */}
           <div className="absolute bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 flex gap-4 z-10">
             {slides.map((_, index) => (
-              <button
+              <motion.button
                 key={index}
                 onClick={(e) => {
                   e.stopPropagation();
                   goToSlide(index);
                 }}
-                className={`rounded-full transition-all duration-300 border-2 ${
-                  index === currentSlide 
-                    ? 'w-4 h-4 border-white bg-white' 
-                    : 'w-3 h-3 border-white border-opacity-50 bg-transparent hover:border-opacity-100'
-                }`}
+                className="rounded-full border-2"
+                animate={{
+                  width: index === currentSlide ? 16 : 12,
+                  height: index === currentSlide ? 16 : 12,
+                  borderColor: index === currentSlide ? '#ffffff' : 'rgba(255, 255, 255, 0.5)',
+                  backgroundColor: index === currentSlide ? '#ffffff' : 'transparent'
+                }}
+                whileHover={{
+                  borderColor: '#ffffff'
+                }}
+                transition={{ duration: 0.3 }}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
           </div>
 
-          {/* Left Side Text - Previous Slide Info */}
           {previousSlide && (
-            <div className="absolute -left-110 top-1/2 -translate-y-1/2 text-white z-10 overflow-hidden pl-16 md:pl-24 lg:pl-32 text-center transition-all duration-[1500ms] ease-in-out" style={{ width: '45%' }}>
-              <div className="opacity-60 transition-opacity duration-[1200ms]">
+            <motion.div 
+              className="absolute -left-110 top-1/2 -translate-y-1/2 text-white z-10 overflow-hidden pl-16 md:pl-24 lg:pl-32 text-center" 
+              style={{ width: '45%' }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.6 }}
+              transition={{ duration: 1.2 }}
+            >
+              <div>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light tracking-wider mb-2 whitespace-pre-line" style={{ fontFamily: 'cosma-font-wiescher-design' }}>
                   {previousSlide.title}
                 </h2>
                 <p className="text-sm md:text-base lg:text-lg font-light opacity-90 mb-4 px-4">
                   {previousSlide.subtitle}
                 </p>
-                <a
+                <motion.a
                   href="#"
-                  className="animated-underline-white text-xs md:text-sm tracking-wider font-medium"
+                  className="inline-block text-xs md:text-sm tracking-wider font-medium border-b-2 border-white pb-1"
                   style={{ fontFamily: 'sans-serif' }}
+                  whileHover={{ opacity: 0.7 }}
+                  transition={{ duration: 0.4 }}
                 >
                   {previousSlide.cta}
-                </a>
+                </motion.a>
               </div>
-            </div>
+            </motion.div>
           )}
 
-          {/* Right Side Text - Next Slide Info */}
           {nextSlide && (
-            <div className="absolute -right-110 top-1/2 -translate-y-1/2 text-white z-10 overflow-hidden pr-16 md:pr-24 lg:pr-32 text-center transition-all duration-[1500ms] ease-in-out" style={{ width: '45%' }}>
-              <div className="opacity-60 transition-opacity duration-[1200ms]">
+            <motion.div 
+              className="absolute -right-110 top-1/2 -translate-y-1/2 text-white z-10 overflow-hidden pr-16 md:pr-24 lg:pr-32 text-center" 
+              style={{ width: '45%' }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.6 }}
+              transition={{ duration: 1.2 }}
+            >
+              <div>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light tracking-wider mb-2 whitespace-pre-line" style={{ fontFamily: 'cosma-font-wiescher-design' }}>
                   {nextSlide.title}
                 </h2>
                 <p className="text-sm md:text-base lg:text-lg font-light opacity-90 mb-4 px-4">
                   {nextSlide.subtitle}
                 </p>
-                <a
+                <motion.a
                   href="#"
-                  className="animated-underline-white text-xs md:text-sm tracking-wider font-medium"
+                  className="inline-block text-xs md:text-sm tracking-wider font-medium border-b-2 border-white pb-1"
                   style={{ fontFamily: 'sans-serif' }}
+                  whileHover={{ opacity: 0.7 }}
+                  transition={{ duration: 0.4 }}
                 >
                   {nextSlide.cta}
-                </a>
+                </motion.a>
               </div>
-            </div>
+            </motion.div>
           )}
 
-          {/* Center Text - Current Slide */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-10 px-8">
-            <div key={currentSlide} className="animate-fadeInScale text-center">
-              <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light tracking-wider mb-4 whitespace-pre-line" style={{ fontFamily: 'cosma-font-wiescher-design' }}>
-                {slides[currentSlide].title}
-              </h2>
-              <p className="text-base md:text-lg lg:text-xl max-w-2xl font-light opacity-90 mb-8 leading-relaxed">
-                {slides[currentSlide].subtitle}
-              </p>
-              <div className="flex justify-center">
-                <a
-                  href="#"
-                  className="animated-underline-white text-sm md:text-base tracking-wider font-medium"
-                  style={{ fontFamily: 'sans-serif' }}
-                >
-                  {slides[currentSlide].cta}
-                </a>
-              </div>
-            </div>
+            <AnimatePresence mode="wait">
+              <motion.div 
+                key={currentSlide}
+                className="text-center"
+                initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: -10 }}
+                transition={{ duration: 1.5, ease: "easeOut" }}
+              >
+                <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light tracking-wider mb-4 whitespace-pre-line" style={{ fontFamily: 'cosma-font-wiescher-design' }}>
+                  {slides[currentSlide].title}
+                </h2>
+                <p className="text-base md:text-lg lg:text-xl max-w-2xl font-light opacity-90 mb-8 leading-relaxed">
+                  {slides[currentSlide].subtitle}
+                </p>
+                <div className="flex justify-center">
+                  <motion.a
+                    href="#"
+                    className="inline-block text-sm md:text-base tracking-wider font-medium border-b-2 border-white pb-1"
+                    style={{ fontFamily: 'sans-serif' }}
+                    whileHover={{ opacity: 0.7 }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    {slides[currentSlide].cta}
+                  </motion.a>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </section>
-    </>
   );
 };
 

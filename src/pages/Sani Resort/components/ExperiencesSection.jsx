@@ -6,9 +6,7 @@ const ExperiencesSection = () => {
     <section className="bg-[#EAE5DB] h-[100vh] flex items-center py-30 px-8 md:px-16 lg:px-28">
       <div className="max-w-7xl mx-auto w-full">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
-          {/* LEFT: Overlapping Images – Takes 2/3 in flex */}
           <div className=" flex-3 flex-shrink-0 relative h-[100vh] md:h-[80vh] lg:h-[80vh]">
-            {/* Bottom-left image (forest path) */}
             <div className="absolute bottom-15  w-[54%] h-[48%] lg:w-[55%] lg:h-[40%]  overflow-hidden  z-20">
               <img
                 src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200"
@@ -17,7 +15,6 @@ const ExperiencesSection = () => {
                 loading="lazy"
               />
             </div>
-            {/* Top-right large image (child on treetop adventure) */}
             <div className="absolute top-8 right-0 w-[90%] h-[50%] lg:h-[65%]  overflow-hidden ">
               <img
                 src={webpImage}
@@ -28,24 +25,19 @@ const ExperiencesSection = () => {
             </div>
           </div>
 
-          {/* RIGHT: Text Content – Takes 1/3 in flex, perfectly centered vertically */}
           <div className="flex-2 flex flex-col justify-center lg:ml-8 space-y-8">
-            {/* Section Label */}
             <p className="text-xs md:text-sm tracking-[0.4em] text-gray-500 uppercase font-light">
               EXPERIENCES
             </p>
 
-            {/* Main Heading */}
             <h2 className="text-4xl leading-[0.95] font-normal" style={{ fontFamily: 'cosma-font-wiescher-design' }}>
               A SANCTUARY OF ADVENTURES
             </h2>
 
-            {/* Description Paragraph */}
             <p className="text-base text-gray-700 leading-relaxed tracking-wide "style={{ fontFamily: 'sans-serif', lineHeight: '1.5' }}>
-              Discover a resort where possibilities are endless. Whether it’s scuba diving, beekeeping, bird watching, waterskiing – inspiration is found at every turn. Hone your game at world-class facilities; including the Rafa Nadal Tennis Center, Bear Grylls Survival Academy, Chelsea Football FC Academy or Sani Treetop Adventure. Or if you want space, explore Sani Resort’s 1,000 acres of unspoilt wilderness by bike.
+              Discover a resort where possibilities are endless. Whether it's scuba diving, beekeeping, bird watching, waterskiing – inspiration is found at every turn. Hone your game at world-class facilities; including the Rafa Nadal Tennis Center, Bear Grylls Survival Academy, Chelsea Football FC Academy or Sani Treetop Adventure. Or if you want space, explore Sani Resort's 1,000 acres of unspoilt wilderness by bike.
             </p>
 
-            {/* CTA */}
             <div className="pt-4">
               <a
                 href="#"

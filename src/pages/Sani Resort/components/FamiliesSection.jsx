@@ -6,14 +6,11 @@ const FamiliesSection = () => {
     <section className="bg-white py-20 px-4 md:px-8 lg:px-16 h-[100vh]">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-          {/* LEFT: Text Content */}
           <div className="flex flex-col justify-center space-y-6 lg:space-y-8">
-            {/* Section Label - Light Gray */}
             <p className="text-xs md:text-sm tracking-[0.4em] text-gray-400 uppercase font-light" style={{ fontFamily: 'sans-serif' }}>
               FAMILIES
             </p>
 
-            {/* Main Heading - Serif, Split across two lines */}
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-extralight leading-tight" style={{ fontFamily: 'cosma-font-wiescher-design', fontWeight: 200 }}>
               CREATING<br />
               <span className="font-light italic" style={{ fontWeight: 300 }}>
@@ -21,12 +18,10 @@ const FamiliesSection = () => {
               </span>
             </h2>
 
-            {/* Description Paragraph */}
             <p className="text-base md:text-lg text-gray-700 leading-relaxed tracking-wide max-w-xl" style={{ fontFamily: 'sans-serif', lineHeight: '1.6' }}>
               Family time. It's precious. The moments we spend together, and those we spend comfortably apart. That's why at Sani we offer uncompromising experiences for all ages, where children and adults can come together as one. Or find the private moments we all need from time-to-time.
             </p>
 
-            {/* CTA - Underlined */}
             <div className="pt-2">
               <a
                 href="#"
@@ -57,7 +52,6 @@ const FamiliesSection = () => {
             `}</style>
           </div>
 
-          {/* RIGHT: Image */}
           <div className="  overflow-hidden">
             <img
               src={familyImage}

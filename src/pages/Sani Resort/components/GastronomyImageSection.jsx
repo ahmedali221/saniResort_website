@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
 import foodImage from '../../../assets/sanirose/sani-club-_-ouzerie-restaurant-_-family-dining-copy.webp'
 
 const GastronomyImageSection = () => {
@@ -13,7 +14,6 @@ const GastronomyImageSection = () => {
   const animationFrameRef = useRef(null)
 
   useEffect(() => {
-    // Ensure video plays on mount
     if (videoRef.current) {
       videoRef.current.play().catch(error => {
         console.log("Video autoplay prevented:", error)
@@ -23,20 +23,16 @@ const GastronomyImageSection = () => {
   }, [])
 
   useEffect(() => {
-    // Handle modal video playback
     if (isModalOpen && modalVideoRef.current) {
       modalVideoRef.current.play()
     }
   }, [isModalOpen])
 
-  // Smooth trailing animation for the circle
   useEffect(() => {
     const animateCircle = () => {
       setCirclePosition(prev => {
         const dx = mousePosition.x - prev.x
         const dy = mousePosition.y - prev.y
-        
-        // Easing factor - higher = slower follow (0.1 = smooth trailing effect)
         const ease = 0.15
         
         return {
@@ -66,7 +62,6 @@ const GastronomyImageSection = () => {
 
   const openModal = () => {
     setIsModalOpen(true)
-    // Pause background video when modal opens
     if (videoRef.current) {
       videoRef.current.pause()
     }
@@ -74,11 +69,9 @@ const GastronomyImageSection = () => {
 
   const closeModal = () => {
     setIsModalOpen(false)
-    // Resume background video when modal closes
     if (videoRef.current) {
       videoRef.current.play()
     }
-    // Pause modal video
     if (modalVideoRef.current) {
       modalVideoRef.current.pause()
     }
@@ -105,7 +98,6 @@ const GastronomyImageSection = () => {
   return (
     <>
       <section className="w-full">
-        {/* Full Width Food Video/Image */}
         <div 
           ref={containerRef}
           className="relative w-full h-[60vh] md:h-[70vh] lg:h-[80vh] overflow-hidden cursor-pointer"
@@ -114,7 +106,6 @@ const GastronomyImageSection = () => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          {/* Fallback Image if video fails */}
           {hasError ? (
             <img 
               src={foodImage} 
@@ -141,7 +132,6 @@ const GastronomyImageSection = () => {
             </video>
           )}
 
-          {/* Trailing Circle - Watch Film that follows mouse with delay */}
           {isHovering && (
             <div 
               className="absolute pointer-events-none z-10"
@@ -153,7 +143,6 @@ const GastronomyImageSection = () => {
               }}
             >
               <div className="w-28 h-28 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-full border-2 border-white flex flex-col items-center justify-center">
-                {/* Play Icon */}
                 <svg 
                   className="w-6 h-6 md:w-8 md:h-8 text-white mb-1" 
                   fill="currentColor" 
@@ -161,7 +150,6 @@ const GastronomyImageSection = () => {
                 >
                   <path d="M8 5v14l11-7z" />
                 </svg>
-                {/* Watch Film Text */}
                 <p className="text-white text-[10px] md:text-xs font-light tracking-[0.15em] uppercase">
                   WATCH FILM
                 </p>
@@ -171,21 +159,28 @@ const GastronomyImageSection = () => {
         </div>
       </section>
 
-      {/* Video Player Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4" onClick={closeModal} style={{ cursor: 'auto' }}>
+        <motion.div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4" 
+          onClick={closeModal} 
+          style={{ cursor: 'auto' }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
           <div className="relative w-full max-w-6xl mx-auto" onClick={(e) => e.stopPropagation()}>
-            {/* Close Button */}
-            <button 
+            <motion.button 
               onClick={closeModal}
-              className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors duration-300 z-10"
+              className="absolute -top-12 right-0 text-white z-10"
+              whileHover={{ color: '#d1d5db' }}
+              transition={{ duration: 0.3 }}
             >
               <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
-            </button>
+            </motion.button>
 
-            {/* Video Player */}
             <div className="relative w-full aspect-video bg-black rounded-lg overflow-hidden shadow-2xl">
               <video
                 ref={modalVideoRef}
@@ -202,7 +197,7 @@ const GastronomyImageSection = () => {
               </video>
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
     </>
   )
