@@ -129,13 +129,14 @@ const GastronomyImageSection = () => {
               loop
               muted
               playsInline
+              loading="lazy"
               preload="metadata"
               onError={handleError}
               className="w-full h-full object-cover"
               style={{ objectPosition: 'center' }}
               poster={foodImage}
             >
-              <source src="/src/assets/sanirose/food.mp4" type="video/mp4" />
+              <source src="https://res.cloudinary.com/deilfrlsh/video/upload/v1763641640/food_nu4zsz.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           )}

@@ -60,7 +60,7 @@ const SustainabilitySection = () => {
           {/* Background Landscape Image */}
           <div className="absolute inset-0 w-full h-full">
             <img
-              src={ducksImage}
+              src={"https://res.cloudinary.com/deilfrlsh/image/upload/v1763641938/ducks_abifhy.webp"}
               alt="Wildlife landscape view"
               className="w-full h-full object-cover"
               loading="lazy"
@@ -78,7 +78,7 @@ const SustainabilitySection = () => {
                 preload="metadata"
                 className="w-full h-full object-cover"
               >
-                <source src={duckVideo} type="video/mp4" />
+                <source src={"https://res.cloudinary.com/deilfrlsh/video/upload/v1763641649/ducksvid_dgu3p5.mp4"} type="video/mp4" />
               </video>
             </div>
           </div>

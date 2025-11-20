@@ -233,12 +233,13 @@ const HeroSection = () => {
             autoPlay
             loop
             muted
+            loading="lazy"
             playsInline
             preload="metadata"
             className="w-full h-full object-cover"
             style={{ filter: 'brightness(0.7)' }}
           >
-            <source src={heroVideo} type="video/mp4" />
+            <source src={"https://res.cloudinary.com/deilfrlsh/video/upload/v1763641695/01a5052d-50d5c2ae_rdewic.mp4"} type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-black/30"></div>
         </div>
